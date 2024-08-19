@@ -1,2 +1,0 @@
-cd tz
-git dif HEAD^ HEAD > justone.txt

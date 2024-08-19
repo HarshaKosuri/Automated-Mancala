@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-compare1=$1
-compare2=$2
-
-git diff $compare1 $compare2> 2023d-2024a.diff
