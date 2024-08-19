@@ -1,0 +1,3 @@
+The main diferences between the cloned repository and the original one is that when git branch is called in the cloned one, only master* is there, but if it is done in the original one,
+there is maint, master*, next, seen, and todo. These are most likely things that are not sent when the repository is cloned, but are there when the original files are created. Additionally, this can be just because only the main
+repo is cloned. 

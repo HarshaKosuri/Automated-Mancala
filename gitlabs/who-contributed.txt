@@ -1,0 +1,13 @@
+Steps
+The first thing to do would be to do git log -S “Even newspaper reports present contradictory information.” This is helpful because it showcases when the code was first introduced. When it is run, the terminal outputs this:
+“commit c12b432741eed9a422fbf99fa27af6e7a941d88b
+Author: Arthur David Olson <ado@elsie>
+Date:   Thu Dec 21 11:43:42 1995 -0500
+
+    Eggert changes
+    
+    SCCS-file: northamerica
+    SCCS-SID: 7.20”
+
+
+Because this showcase when it was introduced, it showcases that the author” Arthur David Olson” added the initial string  that was flagged on Thu Dec 21 11:43:42 1995 -0500.

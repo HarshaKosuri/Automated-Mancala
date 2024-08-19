@@ -1,0 +1,47 @@
+cd into git and use the command "grep git log --grep="git merge-tree" This just allows you to see all the files that have stuff. To see all the commits, go to
+emacs and look at all the commits. This one actually talks about the issue and this is the output. It looks like Derrick Stole is the one who created the changes and described the issue. 
+
+commit b6551feadfda76379a28f424ea46998e2b995d07
+Author: Derrick Stolee <stolee@gmail.com>
+Date:   Wed May 10 19:07:34 2023 +0000
+
+    merge-tree: load default git config
+
+    The 'git merge-tree' command handles creating root trees for merges
+    without using the worktree. This is a critical operation in many Git
+    hosts, as they typically store bare repositories.
+
+    This builtin does not load the default Git config, which can have
+    several important ramifications.
+
+    In particular, one config that is loaded by default is
+    core.useReplaceRefs. This is typically disabled in Git hosts due to
+    the ability to spoof commits in strange ways.
+
+    Since this config is not loaded specifically during merge-tree, users
+    were previously able to use refs/replace/ references to make pull
+     This builtin does not load the default Git config, which can have
+    several important ramifications.
+
+    In particular, one config that is loaded by default is
+    core.useReplaceRefs. This is typically disabled in Git hosts due to
+    the ability to spoof commits in strange ways.
+
+    Since this config is not loaded specifically during merge-tree, users
+    were previously able to use refs/replace/ references to make pull
+    requests that looked valid but introduced malicious content. The
+    resulting merge commit would have the correct commit history, but the
+    malicious content would exist in the root tree of the merge.
+
+    The fix is simple: load the default Git config in cmd_merge_tree().
+    This may also fix other behaviors that are effected by reading default
+    config. The only possible downside is a little extra computation time
+    spent reading config. The config parsing is placed after basic argument
+    parsing so it does not slow down usage errors.
+
+    Helped-by: Johannes Schindelin <johannes.schindelin@gmx.de>
+Author: Kyle Zhao <kylezhao@tencent.com>
+Date:   Fri Nov 11 23:45:14 2022 +0000
+    merge-tree.c: allow specifying the merge-base when --stdin is passed
+
+2. To create the actual patch  git format-patch -1 b6551feadfda76379a28f424ea46998e2b995d07 with the commit and a file was generated stating "0001-merge-tree-load-default-git-config.patch"
