@@ -1,0 +1,21 @@
+﻿scp Desktop/test32.zip classhko@cs32.seas.ucla.edu:
+
+
+zipinfo tes.zip
+
+
+unzip -j -a -d proj48 test32.zip
+* All of the things that it say work
+        g32 -DTESTNUM=14 *.cpp -o rabbits
+
+
+
+
+        g32 -DTESTNUM=16 *.cpp -o rabbits
+
+
+        unzip -j -a -d proj VM.zip
+1. 2. 
+
+        g32 -o testproject2 *.cpp
+                g32 -o r *.cpp
